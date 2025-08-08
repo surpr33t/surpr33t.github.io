@@ -1,195 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Surpreet Kaur</title>
+.hero { padding:64px 0 48px }
+.title {
+  font-weight:800; letter-spacing:-0.02em;
+  line-height:1.02;
+  font-size: clamp(34px, 6.2vw, 60px);  /* smaller than before */
+  margin:6px 0 12px;
+}
+.subtitle { font-size: clamp(15px,1.2vw,18px); margin-bottom:22px }
 
-<!-- Fonts: use system UI for that Apple-clean feel, with Inter as backup -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+header {
+  position:relative; overflow:hidden; border-bottom:1px solid var(--border);
+  background:
+    radial-gradient(1200px 500px at 10% -20%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(900px 400px at 90% -10%, rgba(255,255,255,.05), transparent 65%),
+    linear-gradient(180deg, #0a0a0a 0%, #0b0c0e 50%, #07080a 100%);
+}
+header::after {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(800px 300px at 50% 120%, rgba(255,255,255,.03), transparent 60%);
+  mix-blend-mode:screen;
+}
 
-<style>
-  :root{
-    --bg:#0a0a0a; --text:#f1f3f6; --muted:#b2b8c3; --border:#191c22;
-    --card:#0f1116f2; --chip:#10131d; --grad1:#6ee7f9; --grad2:#a78bfa;
-  }
-  *{box-sizing:border-box}
-  html,body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
-  }
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1100px;margin:0 auto;padding:28px}
+.pfp {
+  width:260px; height:340px; object-fit:cover; object-position:center 20%;
+  border-radius:18px; border:1px solid var(--border);
+  background:#0d0f14;
+  box-shadow:0 18px 44px rgba(0,0,0,.65);
+}
+@media(max-width:980px){
+  .pfp { width:220px; height:300px }
+}
 
-  /* ===== HERO: black → dark gray gradient + subtle vignettes ===== */
-  header{
-    position:relative; overflow:hidden; border-bottom:1px solid var(--border);
-    background:
-      radial-gradient(1200px 500px at 15% -10%, rgba(255,255,255,.06), transparent 60%),
-      radial-gradient(1200px 500px at 85% 0%, rgba(255,255,255,.05), transparent 60%),
-      linear-gradient(180deg, #0a0a0a 0%, #0d0e10 50%, #0a0b0c 100%);
-  }
-  .hero{position:relative; padding:86px 0 64px}
-  .grid{display:grid; grid-template-columns:280px 1fr; gap:44px; align-items:center}
-  @media(max-width:980px){.grid{grid-template-columns:1fr; text-align:center}}
-
-  .pfp{
-    width:280px; height:360px; object-fit:cover; border-radius:18px;
-    border:1px solid var(--border); background:#0d0f14;
-    box-shadow:0 18px 44px rgba(0,0,0,.6);
-    display:block; margin:0 auto;
-  }
-
-  .eyebrow{
-    letter-spacing:.32em; text-transform:uppercase; color:var(--muted);
-    font-size:12px; margin-bottom:10px
-  }
-  .title{
-    font-weight:800; letter-spacing:-0.02em; line-height:0.96;
-    font-size: clamp(42px, 8vw, 86px); margin:6px 0 10px;
-  }
-  .subtitle{color:var(--muted); margin:0 0 26px; font-size: clamp(16px,1.4vw,20px)}
-  .chips{display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 26px}
-  @media(max-width:980px){.chips{justify-content:center}}
-  .chip{padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:#d4dae6}
-  .buttons{display:flex; gap:12px; flex-wrap:wrap}
-  @media(max-width:980px){.buttons{justify-content:center}}
-  .btn{display:inline-flex; align-items:center; gap:10px; padding:11px 16px; border-radius:12px; border:1px solid var(--border); background:#0f131d; font-weight:600}
-  .btn.primary{background:linear-gradient(135deg,var(--grad1),var(--grad2)); color:#0b0b0e; border:none}
-  .icon{width:18px; height:18px; display:inline-block; vertical-align:-3px; opacity:.95}
-
-  /* ===== SECTIONS ===== */
-  section{padding:56px 0; border-bottom:1px solid var(--border)}
-  h2{margin:0 0 16px; font-size:22px; letter-spacing:.02em}
-  p{margin:0 0 12px}
-  .card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:20px}
-  .pillgrid{display:flex; flex-wrap:wrap; gap:10px}
-  .pill{background:#0f1422; border:1px solid var(--border); border-radius:999px; padding:9px 12px}
-  .muted{color:var(--muted)}
-  .repo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-  @media(max-width:980px){.repo-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:620px){.repo-grid{grid-template-columns:1fr}}
-  .repo{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:8px}
-  .repo h3{margin:0; font-size:16px}
-  .repo p{margin:0; color:var(--muted); font-size:14px}
-  .repo a.more{margin-top:auto; font-weight:600}
-  footer{padding:28px 0; color:var(--muted); text-align:center}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="wrap hero">
-    <div class="grid">
-      <!-- HEADSHOT -->
-      <img class="pfp" src="Surpreets_Headshot.jpg" alt="Surpreet Kaur headshot" />
-
-      <!-- TEXT BLOCK -->
-      <div>
-        <div class="eyebrow">software • ai/ml • electrical</div>
-        <h1 class="title">Engineering at the intersection of AI, software, and hardware.</h1>
-        <p class="subtitle">I design and deliver end-to-end systems — from embedded hardware to machine learning pipelines — built to perform in the real world.</p>
-
-        <div class="chips">
-          <span class="chip">Software Engineering</span>
-          <span class="chip">AI / Machine Learning</span>
-          <span class="chip">Electrical & Embedded</span>
-          <span class="chip">Edge Computing</span>
-          <span class="chip">Fintech</span>
-        </div>
-
-        <div class="buttons">
-          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
-          <a class="btn" href="https://github.com/surpr33t?tab=repositories" target="_blank" rel="noopener">
-            <!-- GitHub icon -->
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.22 1.84 1.22 1.07 1.84 2.8 1.31 3.48 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z"/></svg>
-            Browse all projects
-          </a>
-          <a class="btn" href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">
-            <!-- LinkedIn icon -->
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.08V23h-4v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.7-2.5 3.44V23h-3.8V8.5z"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn" href="mailto:surpreet.kaur.pro@gmail.com">
-            <!-- Mail icon -->
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 .4V18h16V6.4l-8 5.2-8-5.2zm8 3.2L20 6H4l8 3.6z"/></svg>
-            Email
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main class="wrap">
-  <section aria-labelledby="about">
-    <h2 id="about">About</h2>
-    <div class="card">
-      <p>I didn’t wait to grow up — life handed me responsibility early. I started school at two weeks old and learned to adapt fast. That mindset led me to USC for Computer Engineering & Computer Science with a minor in AI.</p>
-      <p>I like work that makes sense of complexity: practical AI, solid systems, and electrical/embedded builds that hold up in the real world. Labs, startups, public orgs — different settings, same approach: solve the problem, keep it real, make it meaningful.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="skills">
-    <h2 id="skills">Skills</h2>
-    <div class="card">
-      <div class="pillgrid">
-        <span class="pill">Python</span><span class="pill">C / C++</span><span class="pill">JavaScript / React</span>
-        <span class="pill">Flask</span><span class="pill">SQL</span><span class="pill">Linux</span><span class="pill">Git</span>
-        <span class="pill">Computer Vision (OpenCV, DeepFace)</span><span class="pill">ML (TensorFlow / PyTorch basics)</span>
-        <span class="pill">Edge Computing</span><span class="pill">Raspberry Pi</span><span class="pill">Docker</span>
-        <span class="pill">Kubernetes</span><span class="pill">Apache Airflow</span><span class="pill">GCP basics</span>
-      </div>
-      <p class="muted" style="margin-top:10px">Coursework: Data Structures, Algorithms, AI/ML, Computer Architecture, Networking, Control Systems, Embedded/Digital Systems.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="projects">
-    <h2 id="projects">Latest Repos</h2>
-    <div id="repos" class="repo-grid" aria-live="polite">
-      <!-- populated by JS -->
-    </div>
-    <div style="margin-top:16px">
-      <a class="btn" href="https://github.com/surpr33t?tab=repositories" target="_blank" rel="noopener">Browse all projects →</a>
-    </div>
-  </section>
-
-  <section aria-labelledby="contact">
-    <h2 id="contact">Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:surpreet.kaur.pro@gmail.com">surpreet.kaur.pro@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">linkedin.com/in/surpr33t</a></p>
-      <p>GitHub: <a href="https://github.com/surpr33t" target="_blank" rel="noopener">github.com/surpr33t</a></p>
-    </div>
-  </section>
-</main>
-
-<footer>© 2025 Surpreet Kaur</footer>
-
-<script>
-  // Repo feed: most recently updated public repos (limit 8)
-  async function loadRepos(){
-    try{
-      const res = await fetch('https://api.github.com/users/surpr33t/repos?per_page=100&sort=updated');
-      const data = await res.json();
-      const repos = (Array.isArray(data)?data:[]).filter(r => !r.fork).slice(0, 8);
-      const grid = document.getElementById('repos');
-      grid.innerHTML = repos.map(r => `
-        <div class="repo">
-          <h3>${r.name}</h3>
-          <p>${(r.description||'').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>
-          <a class="more" href="${r.html_url}" target="_blank" rel="noopener">Open on GitHub →</a>
-        </div>
-      `).join('') || '<p class="muted">No public repos yet.</p>';
-    }catch(e){
-      document.getElementById('repos').innerHTML = '<p class="muted">Could not load repositories right now.</p>';
-    }
-  }
-  loadRepos();
-</script>
-</body>
-</html>
 
 
