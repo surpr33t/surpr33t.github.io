@@ -38,6 +38,21 @@
     mix-blend-mode:screen;
   }
 
+  /* ===== FADE-IN ANIMATION ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .pfp, .title, .subtitle, .chips, .buttons {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .pfp { animation-delay: 0.1s; }
+  .title { animation-delay: 0.25s; }
+  .subtitle { animation-delay: 0.4s; }
+  .chips { animation-delay: 0.55s; }
+  .buttons { animation-delay: 0.7s; }
+
   .pfp{
     width:260px; height:340px; object-fit:cover; object-position:center 20%;
     border-radius:18px; border:1px solid var(--border); background:#0d0f14;
