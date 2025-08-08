@@ -4,88 +4,126 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Surpreet Kaur</title>
+
+<!-- Apple-like typography -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --bg:#0a0a0a; --text:#f1f3f6; --muted:#b2b8c3; --border:#191c22;
+    --bg:#0a0a0a; --text:#f3f5f7; --muted:#b4bcc9; --border:#191c22;
     --card:#0f1116f2; --chip:#10131d; --grad1:#6ee7f9; --grad2:#a78bfa;
+    --link:#d7e3ff;
   }
   *{box-sizing:border-box}
   html,body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   }
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1100px;margin:0 auto;padding:28px}
+  .wrap{max-width:1200px;margin:0 auto;padding:28px}
 
-  /* ===== HERO ===== */
-  .hero{ padding:64px 0 48px }
-  .grid{ display:grid; grid-template-columns:280px 1fr; gap:36px; align-items:center }
-  @media(max-width:980px){ .grid{ grid-template-columns:1fr; text-align:center } }
-
-  header{
-    position:relative; overflow:hidden; border-bottom:1px solid var(--border);
+  /* ===== Page background (Apple-ish) ===== */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-1;
     background:
-      radial-gradient(1200px 500px at 10% -20%, rgba(255,255,255,.06), transparent 60%),
-      radial-gradient(900px 400px at 90% -10%, rgba(255,255,255,.05), transparent 65%),
+      radial-gradient(1200px 480px at 15% -10%, rgba(255,255,255,.06), transparent 60%),
+      radial-gradient(900px 360px at 90% -10%, rgba(255,255,255,.05), transparent 65%),
       linear-gradient(180deg, #0a0a0a 0%, #0b0c0e 50%, #07080a 100%);
   }
-  header::after{
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background: radial-gradient(800px 300px at 50% 120%, rgba(255,255,255,.03), transparent 60%);
-    mix-blend-mode:screen;
-  }
 
-  /* ===== FADE-IN ANIMATION ===== */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* ===== Two-column layout ===== */
+  .layout{
+    display:grid; grid-template-columns:320px 1fr; gap:36px;
   }
-  .pfp, .title, .subtitle, .chips, .buttons {
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-  }
-  .pfp { animation-delay: 0.1s; }
-  .title { animation-delay: 0.25s; }
-  .subtitle { animation-delay: 0.4s; }
-  .chips { animation-delay: 0.55s; }
-  .buttons { animation-delay: 0.7s; }
+  @media(max-width:960px){ .layout{ grid-template-columns:1fr } }
 
+  /* Left panel (sticky card) */
+  .left{
+    position:sticky; top:24px; align-self:start;
+    background:var(--card); border:1px solid var(--border); border-radius:22px;
+    padding:20px; display:flex; flex-direction:column; gap:16px;
+    box-shadow:0 18px 44px rgba(0,0,0,.45);
+  }
   .pfp{
-    width:260px; height:340px; object-fit:cover; object-position:center 20%;
-    border-radius:18px; border:1px solid var(--border); background:#0d0f14;
-    box-shadow:0 18px 44px rgba(0,0,0,.65);
-    display:block; margin:0 auto;
+    width:100%; height:380px; object-fit:cover; object-position:center 18%;
+    border-radius:16px; border:1px solid var(--border); background:#0d0f14;
   }
-  @media(max-width:980px){ .pfp{ width:220px; height:300px } }
-
-  .eyebrow{ letter-spacing:.28em; text-transform:uppercase; color:#9aa3b2; opacity:.9; font-size:12px; margin-bottom:10px }
-  .title{
-    font-weight:800; letter-spacing:-0.02em; line-height:1.02;
-    font-size: clamp(34px, 6.2vw, 60px); margin:6px 0 12px;
+  .name{font-weight:800; letter-spacing:-0.01em; font-size:24px; margin:2px 0 0}
+  .role{color:var(--muted); margin:0; font-size:14px}
+  .left .buttons{margin-top:auto; display:flex; flex-wrap:wrap; gap:10px}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:10px 14px;
+    border-radius:12px; border:1px solid var(--border); background:#0f131d; font-weight:600;
   }
-  .subtitle{ color:var(--muted); font-size: clamp(15px,1.2vw,18px); margin-bottom:22px }
-  .chips{ display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 26px }
-  @media(max-width:980px){ .chips{justify-content:center}}
-  .chip{ padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:#d4dae6 }
-  .buttons{ display:flex; gap:12px; flex-wrap:wrap }
-  @media(max-width:980px){ .buttons{justify-content:center}}
-  .btn{ display:inline-flex; align-items:center; gap:10px; padding:11px 16px; border-radius:12px; border:1px solid var(--border); background:#0f131d; font-weight:600 }
   .btn.primary{ background:linear-gradient(135deg,var(--grad1),var(--grad2)); color:#0b0b0e; border:none }
+  .contact small{color:var(--muted)}
+
+  /* Right content */
+  .eyebrow{ letter-spacing:.28em; text-transform:uppercase; color:#9aa3b2; opacity:.9; font-size:12px; margin-bottom:10px }
+  h1.title{
+    font-weight:800; letter-spacing:-0.02em; line-height:1.02;
+    font-size: clamp(36px, 6vw, 56px); margin:6px 0 12px;
+  }
+  .subtitle{ color:var(--muted); font-size: clamp(15px,1.3vw,18px); margin-bottom:22px; max-width:72ch }
+  .chips{ display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 28px }
+  .chip{ padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:var(--chip); color:#d4dae6 }
+
+  section{ margin-top:28px }
+  .section-card{
+    background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px;
+  }
+  h2{
+    font-size:20px; letter-spacing:.02em; margin:0 0 12px;
+  }
+  .muted{color:var(--muted)}
+
+  /* Simple grids */
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media(max-width:960px){ .grid-2{grid-template-columns:1fr} }
+
+  .item{
+    background:#0f1420; border:1px solid var(--border); border-radius:14px; padding:14px;
+  }
+  .item h3{margin:0 0 6px; font-size:16px}
+  .item p{margin:0; color:var(--muted); font-size:14px}
+
+  /* Subtle load-in */
+  @keyframes fadeUp { from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none} }
+  .title,.subtitle,.chips,.section-card{ opacity:0; animation:fadeUp .75s ease .15s forwards }
 </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="layout">
+      <!-- LEFT: Photo + identity + contact -->
+      <aside class="left">
+        <img class="pfp" src="./Surpreets_Headshot.jpg" alt="Surpreet Kaur headshot" />
+        <h3 class="name">Surpreet Kaur</h3>
+        <p class="role">AI • Software • Electrical/Embedded</p>
 
-<header>
-  <div class="wrap hero">
-    <div class="grid">
-      <!-- HEADSHOT -->
-      <img class="pfp" src="./Surpreets_Headshot.jpg" alt="Surpreet Kaur headshot" />
+        <div class="contact">
+          <p><small>Email</small><br>
+            <a href="mailto:surpreet.kaur.pro@gmail.com" style="color:var(--link)">surpreet.kaur.pro@gmail.com</a>
+          </p>
+          <p><small>LinkedIn</small><br>
+            <a href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener" style="color:var(--link)">linkedin.com/in/surpr33t</a>
+          </p>
+          <p><small>GitHub</small><br>
+            <a href="https://github.com/surpr33t" target="_blank" rel="noopener" style="color:var(--link)">github.com/surpr33t</a>
+          </p>
+        </div>
 
-      <!-- TEXT BLOCK -->
-      <div>
+        <div class="buttons">
+          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
+          <a class="btn" href="mailto:surpreet.kaur.pro@gmail.com">Email</a>
+          <a class="btn" href="https://github.com/surpr33t?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </aside>
+
+      <!-- RIGHT: content -->
+      <main>
         <div class="eyebrow">software • ai/ml • electrical</div>
         <h1 class="title">Engineering at the intersection of AI, software, and hardware.</h1>
         <p class="subtitle">I design and deliver end-to-end systems — from embedded hardware to machine learning pipelines — built to perform in the real world.</p>
@@ -98,19 +136,73 @@
           <span class="chip">Fintech</span>
         </div>
 
-        <div class="buttons">
-          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
-          <a class="btn" href="https://github.com/surpr33t?tab=repositories" target="_blank" rel="noopener">Browse all projects</a>
-          <a class="btn" href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="mailto:surpreet.kaur.pro@gmail.com">Email</a>
-        </div>
-      </div>
+        <!-- Projects -->
+        <section>
+          <h2>Projects</h2>
+          <div class="grid-2">
+            <div class="item">
+              <h3>Spotify Mood Recommender</h3>
+              <p>Flask app mapping detected emotion → playlist; DeepFace for CV, Spotify API auth, end-to-end pipeline.</p>
+            </div>
+            <div class="item">
+              <h3>Facial Expression CNN</h3>
+              <p>Trained CNN on grayscale dataset from <code>facialex.csv</code> to classify expressions; metrics + confusion matrix.</p>
+            </div>
+            <div class="item">
+              <h3>RNN EN→ES Translator</h3>
+              <p>Sequence-to-sequence SimpleRNN baseline on 50k pairs; tokenization/padding pipeline and evaluation vs LSTM.</p>
+            </div>
+            <div class="item">
+              <h3>Airflow × SAGA Integration</h3>
+              <p>DAG orchestration research; executor comparisons, API integration plan, and metadata export for analysis.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <h2>Skills</h2>
+          <div class="section-card">
+            <p class="muted">
+              Python · C/C++ · JavaScript/React · Flask · SQL · Linux · Git · OpenCV/DeepFace · TensorFlow/PyTorch (basics) ·
+              Edge Computing · Raspberry Pi · Docker · Kubernetes · Apache Airflow · GCP (basics)
+            </p>
+            <p class="muted" style="margin-top:8px">
+              Coursework: Data Structures, Algorithms, AI/ML, Computer Architecture, Networking, Control Systems, Embedded/Digital Systems.
+            </p>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section>
+          <h2>Experience</h2>
+          <div class="section-card">
+            <div class="item" style="background:transparent;border:none;padding:0">
+              <h3>Research & Academic Projects — USC</h3>
+              <p class="muted">Built ML and embedded systems projects focused on real-world robustness, from CV apps to orchestration tooling.</p>
+            </div>
+            <div class="item" style="background:transparent;border:none;padding:0">
+              <h3>Freelance / Contract</h3>
+              <p class="muted">Rapid prototyping for data-driven tools; end-to-end delivery from breadboard to backend.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact footer -->
+        <section>
+          <h2>Contact</h2>
+          <div class="section-card">
+            <p>Email: <a href="mailto:surpreet.kaur.pro@gmail.com" style="color:var(--link)">surpreet.kaur.pro@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener" style="color:var(--link)">linkedin.com/in/surpr33t</a></p>
+            <p>GitHub: <a href="https://github.com/surpr33t" target="_blank" rel="noopener" style="color:var(--link)">github.com/surpr33t</a></p>
+          </div>
+        </section>
+      </main>
     </div>
   </div>
-</header>
-
 </body>
 </html>
+
 
 
 
