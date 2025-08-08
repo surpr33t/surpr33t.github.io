@@ -3,94 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Surpreet Kaur • Portfolio</title>
+  <title>Surpreet Kaur</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0f17; --card:#121826; --muted:#98a2b3; --text:#e5e7eb; --accent:#6ee7f9; --accent2:#a78bfa;
-      --border:#1f2937;
+      --bg:#0a0b0f; --card:#11131a; --muted:#a7b0be; --text:#e7eaf0; --border:#1b1f2a;
+      --accent:#6ee7f9; --accent2:#a78bfa;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:20px}
-    /* Header / Hero */
-    .hero{
-      background: radial-gradient(1200px 400px at 20% -10%, #1f2a44 0%, transparent 60%),
-                  radial-gradient(900px 300px at 100% 0%, #251e49 0%, transparent 60%),
-                  linear-gradient(180deg,#0b0f17 0%,#0b0f17 70%);
-      border-bottom:1px solid var(--border);
+    .wrap{max-width:980px;margin:0 auto;padding:28px}
+    /* HERO */
+    header{padding:44px 0;border-bottom:1px solid var(--border);
+      background:
+        radial-gradient(900px 320px at 0% -20%, rgba(167,139,250,.14), transparent 60%),
+        radial-gradient(900px 320px at 100% 0%, rgba(110,231,249,.10), transparent 60%);
     }
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0}
-    .brand{font-weight:800;letter-spacing:.5px}
-    .links a{padding:8px 12px;border:1px solid transparent;border-radius:10px;color:var(--muted)}
-    .links a:hover{border-color:var(--border);color:var(--text)}
-    .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;padding:48px 0}
-    @media(max-width:840px){.hero-inner{grid-template-columns:1fr}}
-    .title{font-size:34px;line-height:1.2;margin:8px 0 10px;font-weight:800}
-    .subtitle{color:var(--muted);margin:0 0 22px}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 26px}
-    .badge{padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:#cbd5e1;background:rgba(255,255,255,.03)}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#151b2b}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b0f17;font-weight:700;border:none}
-    /* Sections */
-    section{padding:36px 0;border-bottom:1px solid var(--border)}
-    h2{margin:0 0 18px;font-size:22px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media(max-width:980px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.cards{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
-    .card h3{margin:0 0 6px;font-size:18px}
-    .card p{margin:0;color:var(--muted)}
-    .kvs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    @media(max-width:640px){.kvs{grid-template-columns:1fr}}
-    .kv{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+    .hero{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:center}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;text-align:center}}
+    .pfp{width:150px;height:150px;border-radius:50%;object-fit:cover;border:1px solid var(--border);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+    h1{font-size:36px;margin:0 0 8px;font-weight:800;letter-spacing:.2px}
+    .tag{color:var(--muted);margin:0 0 18px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start}
+    @media(max-width:760px){.buttons{justify-content:center}}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--card)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0b0f;border:none;font-weight:700}
+    .icon{width:18px;height:18px;display:inline-block;vertical-align:-3px;opacity:.95}
+    /* SECTIONS */
+    section{padding:40px 0;border-bottom:1px solid var(--border)}
+    h2{margin:0 0 14px;font-size:20px}
+    p{margin:0 0 12px}
+    .pillgrid{display:flex;flex-wrap:wrap;gap:10px}
+    .pill{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:9px 12px}
     footer{padding:28px 0;color:var(--muted);text-align:center}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="nav">
-        <div class="brand">Surpreet Kaur</div>
-        <div class="links">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
 
-      <div class="hero-inner">
+  <header>
+    <div class="wrap">
+      <div class="hero">
+        <img class="pfp" src="headshot.jpg" alt="Surpreet Kaur headshot" />
         <div>
-          <div class="title">CS & CE @ USC • AI Applications Minor</div>
-          <p class="subtitle">
-            Building human-centered systems across <b>AI</b>, <b>edge computing</b>, and <b>fintech</b>. 
-            I like turning messy problems into simple, scalable products.
-          </p>
-          <div class="badges">
-            <span class="badge mono">Python</span>
-            <span class="badge mono">C++</span>
-            <span class="badge mono">React</span>
-            <span class="badge mono">Cloud</span>
-            <span class="badge mono">ML</span>
-          </div>
-          <div class="cta">
-            <a class="btn primary" href="#projects">See Projects</a>
-            <a class="btn" href="mailto:surpreet.kaur.pro@gmail.com">Email Me</a>
-            <a class="btn" href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="https://github.com/surpr33t" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Quick Snapshot</h3>
-          <p>USC student focused on AI + systems. Interested in fintech, high-impact UX, and scalable backend work. Actively seeking Summer 2026 SWE internships.</p>
-          <div style="height:10px"></div>
-          <div class="kvs">
-            <div class="kv"><b>Current</b><br><span class="muted">CS/CE + AI Minor</span></div>
-            <div class="kv"><b>Focus</b><br><span class="muted">AI • Edge • Fintech</span></div>
-            <div class="kv"><b>Location</b><br><span class="muted">Los Angeles, CA</span></div>
+          <h1>Surpreet Kaur</h1>
+          <p class="tag">CS & CE @ USC • AI Applications Minor — building human-centered systems across AI, edge, and fintech.</p>
+          <div class="buttons">
+            <a class="btn" href="mailto:surpreet.kaur.pro@gmail.com" aria-label="Email">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 .4V18h16V6.4l-8 5.2-8-5.2zm8 3.2L20 6H4l8 3.6z"/></svg>
+              Email
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.08V23h-4v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.7-2.5 3.44V23h-3.8V8.5z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn" href="https://github.com/surpr33t" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.22 1.84 1.22 1.07 1.84 2.8 1.31 3.48 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
           </div>
         </div>
       </div>
@@ -98,56 +69,50 @@
   </header>
 
   <main class="wrap">
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="cards">
-        <a class="card" href="#" >
-          <h3>Emotion-Aware Music Player</h3>
-          <p>Detects user emotion and maps it to Spotify playlists. Built with Python, Flask, and basic CV/ML.</p>
-        </a>
-        <a class="card" href="#" >
-          <h3>Edge Computing Toolkit</h3>
-          <p>Lightweight pipeline for processing sensor data on-device; designed for low-latency inference.</p>
-        </a>
-        <a class="card" href="#" >
-          <h3>Quantum Algorithms Notes</h3>
-          <p>Explorations of amplitude amplification & toy circuits in Qiskit; benchmarking intuition-first.</p>
-        </a>
-      </div>
+    <section aria-labelledby="about">
+      <h2 id="about">About</h2>
+      <p>I didn’t wait to grow up — life handed me responsibility early. I started school at two weeks old, and from that point on, I learned how to adapt, observe, and figure things out early. That experience is what led me to study Computer Engineering and Computer Science with a minor in AI at USC.</p>
+      <p>I’m passionate about building systems that make sense of complexity — whether that’s through research in edge computing and quantum algorithms or creating AI tools that respond to real human needs. I’ve worked across labs, startups, and public institutions, always bringing the same mindset: solve the problem, keep it real, and make it meaningful.</p>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Languages & Tools</h3>
-          <p class="mono">Python • C++ • React • Git • Linux • Cloud (AWS basics)</p>
-        </div>
-        <div class="card">
-          <h3>Focus Areas</h3>
-          <p>Machine Learning, Systems, Edge, Fintech-oriented product thinking, data-driven problem solving.</p>
-        </div>
-        <div class="card">
-          <h3>Coursework</h3>
-          <p>Data Structures, Algorithms, ML/AI, Computer Architecture, Networking, Control Systems.</p>
-        </div>
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <div class="pillgrid">
+        <span class="pill">Python</span>
+        <span class="pill">C / C++</span>
+        <span class="pill">JavaScript / React</span>
+        <span class="pill">Flask</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Linux</span>
+        <span class="pill">Git</span>
+        <span class="pill">Docker</span>
+        <span class="pill">Kubernetes</span>
+        <span class="pill">Apache Airflow</span>
+        <span class="pill">Computer Vision (OpenCV, DeepFace)</span>
+        <span class="pill">Machine Learning (TensorFlow / PyTorch basics)</span>
+        <span class="pill">Edge Computing</span>
+        <span class="pill">Raspberry Pi</span>
+        <span class="pill">GCP basics</span>
       </div>
+      <p class="muted">Coursework: Data Structures, Algorithms, AI/ML, Computer Architecture, Networking, Control Systems, Embedded/Digital Systems.</p>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Email: <a href="mailto:surpreet.kaur.pro@gmail.com">surpreet.kaur.pro@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">linkedin.com/in/surpr33t</a></p>
-        <p>GitHub: <a href="https://github.com/surpr33t" target="_blank" rel="noopener">github.com/surpr33t</a></p>
-        <p class="muted">Resume PDF coming soon.</p>
-      </div>
+    <section aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
+      <p class="muted">Everything lives on GitHub. Browse them all here:</p>
+      <p><a class="btn" href="https://github.com/surpr33t?tab=repositories" target="_blank" rel="noopener">Browse all projects →</a></p>
+    </section>
+
+    <section aria-labelledby="contact">
+      <h2 id="contact">Contact</h2>
+      <p>Email: <a href="mailto:surpreet.kaur.pro@gmail.com">surpreet.kaur.pro@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener">linkedin.com/in/surpr33t</a></p>
+      <p>GitHub: <a href="https://github.com/surpr33t" target="_blank" rel="noopener">github.com/surpr33t</a></p>
     </section>
   </main>
 
-  <footer>
-    © 2025 Surpreet Kaur • Built with HTML/CSS on GitHub Pages
-  </footer>
+  <footer>© 2025 Surpreet Kaur</footer>
 </body>
 </html>
+
 
