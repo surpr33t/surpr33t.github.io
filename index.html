@@ -54,10 +54,9 @@
     margin:12px 0 4px; color:#9aa3b2; text-transform:uppercase; letter-spacing:.28em; font-size:12px;
   }
   .name{ font-weight:800; letter-spacing:-0.01em; font-size:26px; margin:6px 0 2px }
-  .role{ color:var(--muted); margin:0 0 8px; font-size:14px }
 
-  /* Icon row (incl. Resume) */
-  .icons{ display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 6px }
+  /* Icon row */
+  .icons{ display:flex; gap:12px; flex-wrap:wrap; margin:14px 0 }
   .iconbtn{
     display:inline-flex; align-items:center; justify-content:center;
     width:44px; height:44px; border-radius:12px;
@@ -89,8 +88,8 @@
   .item p{ margin:0; color:var(--muted); font-size:14px }
   .card{ background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px }
 
-  /* Experience with logo chips */
-  .xp{ display:grid; grid-template-columns:1fr; gap:12px }
+  /* Experience */
+  .xp{ display:grid; gap:12px }
   .xp-row{
     display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:center;
     background:#0f1420; border:1px solid var(--border); border-radius:14px; padding:12px 14px;
@@ -98,50 +97,40 @@
   .logo{
     width:42px; height:42px; border-radius:50%; overflow:hidden;
     display:inline-flex; align-items:center; justify-content:center;
-    background:#0f131d; border:1px solid var(--border); color:#cbd3df; font-weight:700; font-size:12px;
+    background:#0f131d; border:1px solid var(--border);
   }
   .logo img{ width:100%; height:100%; object-fit:cover }
-  .logo.logo-text{ font-size:11px; letter-spacing:.04em } /* text fallback */
-  .xp h3{ margin:0; font-size:16px }
-  .xp .sub{ margin:2px 0 0; color:var(--muted); font-size:14px }
-  .xp .meta{ color:#9aa3b2; font-size:13px; text-align:right }
 
-  /* Soft load-in */
-  @keyframes fadeUp{ from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none} }
-  .title,.subtitle,.chips,.section{ opacity:0; animation:fadeUp .75s ease .12s forwards }
 </style>
 </head>
 <body>
   <div class="wrap">
     <div class="layout">
       <!-- LEFT -->
-<aside class="left">
-    <img class="pfp" src="./Surpreets_Headshot.jpg" alt="Surpreet Kaur headshot" />
-    <h2 class="name">Surpreet Kaur</h2>
-    <div class="stackline">Software • AI/ML • Electrical</div>
-</aside>
+      <aside class="left">
+        <img class="pfp" src="./Surpreets_Headshot.jpg" alt="Surpreet Kaur headshot" />
+        <h2 class="name">Surpreet Kaur</h2>
+        <div class="stackline">Software • AI/ML • Electrical</div>
 
-        <!-- Icons: Email, LinkedIn, GitHub, Resume -->
+        <!-- Icons -->
         <div class="icons">
-          <!-- Email -->
           <a class="iconbtn" href="mailto:surpreet.kaur.pro@gmail.com" aria-label="Email">
+            <!-- Email icon -->
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2 .4V18h16V6.4l-8 5.2-8-5.2zm8 3.2L20 6H4l8 3.6z"/></svg>
           </a>
-          <!-- LinkedIn -->
           <a class="iconbtn" href="https://www.linkedin.com/in/surpr33t" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <!-- LinkedIn icon -->
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.08V23h-4v-6.5c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.7-2.5 3.44V23h-3.8V8.5z"/></svg>
           </a>
-          <!-- GitHub -->
           <a class="iconbtn" href="https://github.com/surpr33t" target="_blank" rel="noopener" aria-label="GitHub">
+            <!-- GitHub icon -->
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.22 1.84 1.22 1.07 1.84 2.8 1.31 3.48 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .5z"/></svg>
           </a>
-          <!-- Resume (auto-detects correct filename) -->
-          <a id="resumeIcon" class="iconbtn" href="#" target="_blank" rel="noopener" aria-label="Résumé">
+          <a id="resumeIcon" class="iconbtn" href="./Surpreet-Kaur-Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+            <!-- Resume icon -->
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2.5L18.5 9H14V4.5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zM8 9h4v2H8V9z"/></svg>
           </a>
         </div>
-
-        <div class="spacer"></div>
       </aside>
 
       <!-- RIGHT -->
@@ -191,55 +180,28 @@
           </div>
         </section>
 
-        <!-- Experience with logo chips that link -->
+        <!-- Experience -->
         <section class="section">
           <h2>Experience</h2>
           <div class="xp">
             <div class="xp-row">
-              <a class="logo" href="https://www.usc.edu" target="_blank" rel="noopener" aria-label="USC">
-                <img src="./usc.jpg" alt="USC logo"
-                     onerror="this.remove();this.parentElement.classList.add('logo-text');this.parentElement.textContent='USC';" />
-              </a>
-              <div>
-                <h3>USC — Research/Projects</h3>
-                <div class="sub">Software / ML / Embedded</div>
-              </div>
+              <a class="logo" href="https://www.usc.edu" target="_blank"><img src="./usc.png" alt="USC logo" /></a>
+              <div><h3>USC — Research/Projects</h3><div class="sub">Software / ML / Embedded</div></div>
               <div class="meta">Los Angeles, CA<br><span>2024–2025</span></div>
             </div>
-
             <div class="xp-row">
-              <a class="logo" href="https://www.usc.edu" target="_blank" rel="noopener" aria-label="USC">
-                <img src="./usc.png" alt="USC logo"
-                     onerror="this.remove();this.parentElement.classList.add('logo-text');this.parentElement.textContent='USC';" />
-              </a>
-              <div>
-                <h3>USC — Teaching/Labs</h3>
-                <div class="sub">Course projects & lab builds</div>
-              </div>
+              <a class="logo" href="https://www.usc.edu" target="_blank"><img src="./usc.png" alt="USC logo" /></a>
+              <div><h3>USC — Teaching/Labs</h3><div class="sub">Course projects & lab builds</div></div>
               <div class="meta">Los Angeles, CA<br><span>2024–2025</span></div>
             </div>
-
             <div class="xp-row">
-              <a class="logo" href="https://www.usc.edu" target="_blank" rel="noopener" aria-label="USC">
-                <img src="./usc.png" alt="USC logo"
-                     onerror="this.remove();this.parentElement.classList.add('logo-text');this.parentElement.textContent='USC';" />
-              </a>
-              <div>
-                <h3>USC — AI Systems</h3>
-                <div class="sub">End-to-end pipelines (CV/NLP)</div>
-              </div>
+              <a class="logo" href="https://www.usc.edu" target="_blank"><img src="./usc.png" alt="USC logo" /></a>
+              <div><h3>USC — AI Systems</h3><div class="sub">End-to-end pipelines (CV/NLP)</div></div>
               <div class="meta">Los Angeles, CA<br><span>2024–2025</span></div>
             </div>
-
             <div class="xp-row">
-              <a class="logo" href="https://www.projectdestined.com/" target="_blank" rel="noopener" aria-label="Project Destined">
-                <img src="./project-destined.jpeg" alt="Project Destined logo"
-                     onerror="this.remove();this.parentElement.classList.add('logo-text');this.parentElement.textContent='PD';" />
-              </a>
-              <div>
-                <h3>Project Destined</h3>
-                <div class="sub">Commercial Real Estate Fundamentals Fellow</div>
-              </div>
+              <a class="logo" href="https://www.projectdestined.com/" target="_blank"><img src="./project-destined.jpeg" alt="Project Destined logo" /></a>
+              <div><h3>Project Destined</h3><div class="sub">Commercial Real Estate Fundamentals Fellow</div></div>
               <div class="meta">Remote<br><span>2024</span></div>
             </div>
           </div>
@@ -247,27 +209,9 @@
       </main>
     </div>
   </div>
-
-<script>
-  // Resume icon: try clean name, then encoded "Surpreet Kaur | Resume.pdf"
-  (async function(){
-    const el = document.getElementById('resumeIcon');
-    const candidates = [
-      './Surpreet-Kaur-Resume.pdf',
-      './Surpreet%20Kaur%20%7C%20Resume.pdf'
-    ];
-    for (const url of candidates){
-      try{
-        const res = await fetch(url, { method:'HEAD' });
-        if (res.ok){ el.href = url; return; }
-      }catch(e){}
-    }
-    el.removeAttribute('target');
-    el.href = '#';
-    el.title = 'Upload Surpreet-Kaur-Resume.pdf to the repo root';
-  })();
-</script>
 </body>
 </html>
+
+
 
 
